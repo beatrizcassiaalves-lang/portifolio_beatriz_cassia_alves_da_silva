@@ -1,0 +1,5 @@
+{
+  "name": "WhereAmI",
+  "description": "Plataforma profissional de busca OSINT para investigações digitais. Descubra nomes de usuário e pegadas digitais em mais de 500 plataformas.",
+  "requestFramePermissions": []
+}

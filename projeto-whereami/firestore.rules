@@ -1,0 +1,67 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: reports
+    // Fields:
+    //   - uid: string (required) - The user ID who generated the report
+    //   - query: string (required) - The search query
+    //   - searchType: string (required) - 'username' or 'email'
+    //   - pdfUrl: string (required) - URL to the stored PDF
+    //   - createdAt: timestamp (required) - When the report was generated
+    //
+    // Collection: searches
+    // Fields:
+    //   - uid: string (required) - The user ID who performed the search
+    //   - query: string (required) - The search query
+    //   - searchType: string (required) - 'username' or 'email'
+    //   - createdAt: timestamp (required) - When the search was performed
+    //
+    // ===============================================================
+
+    // Helper Functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isValidReport(data) {
+      return data.keys().hasAll(['uid', 'query', 'searchType', 'pdfUrl', 'createdAt']) &&
+             data.uid is string && data.uid == request.auth.uid &&
+             data.query is string && data.query.size() > 0 && data.query.size() < 200 &&
+             data.searchType in ['username', 'email'] &&
+             data.pdfUrl is string && data.pdfUrl.matches("^https://.*") &&
+             data.createdAt is timestamp;
+    }
+
+    function isValidSearch(data) {
+      return data.keys().hasAll(['uid', 'query', 'searchType', 'createdAt']) &&
+             data.uid is string && data.uid == request.auth.uid &&
+             data.query is string && data.query.size() > 0 && data.query.size() < 200 &&
+             data.searchType in ['username', 'email'] &&
+             data.createdAt is timestamp;
+    }
+
+    match /reports/{reportId} {
+      allow read: if isOwner(resource.data.uid);
+      allow create: if isAuthenticated() && isValidReport(request.resource.data);
+      allow update, delete: if false; // Reports are immutable
+    }
+
+    match /searches/{searchId} {
+      allow read: if isOwner(resource.data.uid);
+      allow create: if isAuthenticated() && isValidSearch(request.resource.data);
+      allow update, delete: if false; // Searches are immutable
+    }
+
+    match /test/connection {
+      allow read: if true;
+    }
+  }
+}
