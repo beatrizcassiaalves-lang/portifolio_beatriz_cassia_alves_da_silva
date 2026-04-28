@@ -29,4 +29,3 @@ O projeto demonstra como a IA Generativa pode ser aplicada para otimizar process
 
 
 ---
-[Voltar ao início](https://github.com/seu-usuario)
