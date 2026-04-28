@@ -22,4 +22,3 @@ A atividade permitiu identificar como falhas na base de dados influenciam direta
 
  
 ---
-[Voltar ao início](https://github.com/seu-usuario/seu-usuario)
