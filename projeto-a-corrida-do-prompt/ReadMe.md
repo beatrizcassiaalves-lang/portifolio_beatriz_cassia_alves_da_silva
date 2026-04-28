@@ -23,4 +23,3 @@ O projeto alcançou o sucesso ao converter instruções simples em comandos comp
 4. Respeite o limite de 5 prompts para alcançar o objetivo final.
 
 ---
-[Voltar ao início](https://github.
