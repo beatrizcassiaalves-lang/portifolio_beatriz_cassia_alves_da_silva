@@ -30,4 +30,3 @@ O projeto demonstra a eficácia da união entre IA e ferramentas de busca em mas
 
 
 ---
-[Voltar ao início](https://github.com/seu-usuario)
