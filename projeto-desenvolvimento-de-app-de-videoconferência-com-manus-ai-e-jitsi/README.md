@@ -168,9 +168,6 @@ Escaneie o código abaixo com o **Expo Go** para testar o app:
 ## 📲 Pré-visualização
 **URL de Pré-visualização**: https://manus.im/app-preview/n5Mvio4iqnGa75wwY4hmw7?sessionId=LpOSpAwakEU8hvXtsfk5a9
 
-## 📲 APK
-[Link] https://vida-prod-webdev-app.s3.us-east-1.amazonaws.com/android-builds/310519663628005432/7e177f25-43a8-4263-aad6-ec131d4fcd9e/lingua-connect-v1_0_0.apk?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZV3A2ECZO4N7RSPW%2F20260505%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260505T003909Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=e5be2e1ac86a6073cebec9f71b552a03c462b962f1a9e1956f75ed52070c4f61
-
 
 **Versão**: 1.0.0  
 **Data de Lançamento**: Maio 2026  
